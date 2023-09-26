@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"log/slog"
-
 	"github.com/tidwall/gjson"
-	"github.com/xmdhs/clash2singbox/convert"
+	"github.com/xmdhs/clash2sfa/utils/convert"
 	"github.com/xmdhs/clash2singbox/httputils"
+	"log/slog"
 )
 
+// convert2sing convert clash configuration to sing-box.
 func convert2sing(cxt context.Context, client *http.Client, config, sub string, include, exclude string, addTag bool, l *slog.Logger) ([]byte, error) {
 	c, err := httputils.GetClash(cxt, client, sub, addTag)
 	if err != nil {
@@ -33,6 +33,7 @@ func convert2sing(cxt context.Context, client *http.Client, config, sub string, 
 		}
 	}
 
+	// The true conversion step.
 	s, err := convert.Clash2sing(c)
 	if err != nil {
 		l.DebugContext(cxt, err.Error())

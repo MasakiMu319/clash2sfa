@@ -2,7 +2,7 @@ package main
 
 import (
 	_ "embed"
-	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -79,5 +79,8 @@ func main() {
 			mux.ServeHTTP(w, r)
 		}),
 	}
-	fmt.Println(s.ListenAndServe())
+	err = s.ListenAndServe()
+	if err != nil {
+		log.Fatalf("Can't launch service: %+v\n", err)
+	}
 }
