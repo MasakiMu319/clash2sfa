@@ -27,3 +27,9 @@ sing-box Profiles 中 New Profile填入 remote 链接，可以通过启动订阅
 - http
 - hysteria
 - tuic5
+
+## Change Log
+### 1.1.0
+- Added default country triage label, etc: HK,TW...;
+- added delayed test connection for Apple service;
+- rewrote filter unnecessary node judgment logic.
