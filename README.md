@@ -29,7 +29,7 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - tuic5
 
 ## Change Log
-### 1.1.0
+### 0.2.0
 - Added default country triage label, etc: HK,TW...;
 - added delayed test connection for Apple service;
 - rewrote filter unnecessary node judgment logic.
