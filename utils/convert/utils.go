@@ -99,6 +99,7 @@ func Patch(b []byte, s []singbox.SingBoxOut, include, exclude string, extOut []i
 	s = append(s, singbox.SingBoxOut{
 		Type:      "urltest",
 		Tag:       "urltest",
+		URL:       "http://www.apple.com/",
 		Outbounds: ftags,
 	})
 

@@ -14,6 +14,7 @@ import (
 
 // convert2sing convert clash configuration to sing-box.
 func convert2sing(cxt context.Context, client *http.Client, config, sub string, include, exclude string, addTag bool, l *slog.Logger) ([]byte, error) {
+	// addTag is the switch of add subscription name.
 	c, err := httputils.GetClash(cxt, client, sub, addTag)
 	if err != nil {
 		return nil, fmt.Errorf("convert2sing: %w", err)

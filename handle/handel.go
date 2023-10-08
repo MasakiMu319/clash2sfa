@@ -93,7 +93,33 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					Config:    config,
 					ConfigUrl: curl,
 					AddTag:    addTagb,
-					UrlTest:   []model.UrlTestArg{},
+					UrlTest: []model.UrlTestArg{
+						{
+							Tag:     "HK",
+							Include: "HK|HongKong|🇭🇰",
+							Type:    "selector",
+						},
+						{
+							Tag:     "TW",
+							Include: "TW|Taiwan|🇨🇳|🇹🇼",
+							Type:    "selector",
+						},
+						{
+							Tag:     "JP",
+							Include: "JP|Japan|🇯🇵",
+							Type:    "selector",
+						},
+						{
+							Tag:     "SG",
+							Include: "SG|Singapore|🇸🇬",
+							Type:    "selector",
+						},
+						{
+							Tag:     "US",
+							Include: "US|United States|🇺🇸",
+							Type:    "selector",
+						},
+					},
 				}
 				if urltest != "" {
 					b, err := zlibDecode(urltest)

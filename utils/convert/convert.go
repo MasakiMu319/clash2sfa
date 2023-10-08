@@ -3,11 +3,10 @@ package convert
 import (
 	"errors"
 	"fmt"
-	"strconv"
-	"strings"
-
 	"github.com/xmdhs/clash2singbox/model/clash"
 	"github.com/xmdhs/clash2singbox/model/singbox"
+	"strconv"
+	"strings"
 )
 
 var convertMap = map[string]func(*clash.Proxies, *singbox.SingBoxOut) ([]singbox.SingBoxOut, error){
@@ -34,10 +33,7 @@ func Clash2sing(c clash.Clash) ([]singbox.SingBoxOut, error) {
 	sl := make([]singbox.SingBoxOut, 0, len(c.Proxies)+1)
 	var jerr error
 	for _, v := range c.Proxies {
-		if err := strings.Contains(v.Name, "剩余"); err {
-			continue
-		}
-		if err := strings.Contains(v.Name, "到期"); err {
+		if !checkIllegolNode(v.Name) {
 			continue
 		}
 		v := v
@@ -100,4 +96,11 @@ func comm(p *clash.Proxies) (*singbox.SingBoxOut, string, error) {
 	}
 
 	return s, s.Type, nil
+}
+
+func checkIllegolNode(name string) bool {
+	if strings.Contains(name, ":") {
+		return false
+	}
+	return true
 }

@@ -7,7 +7,7 @@
 ## docker
 ```
 docker volume create clash2sfa    
-docker run -d -p 8080:8080 -v clash2sfa:/server/db ghcr.io/xmdhs/clash2sfa
+docker run -d -p 8080:8080 -v clash2sfa:/server/db jiumumu/clash2singbox
 ```
 ## 使用
 启动后使用浏览器访问 http://ip:port
