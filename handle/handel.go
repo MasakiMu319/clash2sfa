@@ -131,7 +131,7 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					if err != nil {
 						return nil, err
 					}
-					a.UrlTest = u
+					a.UrlTest = append(a.UrlTest, u...)
 				}
 				return service.MakeConfig(ctx, c, frontendByte, l, a)
 			}
