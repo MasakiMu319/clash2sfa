@@ -66,8 +66,8 @@ func Patch(b []byte, s []singbox.SingBoxOut, include, exclude string, extOut []i
 		return nil, fmt.Errorf("patch: %w", err)
 	}
 	tags := getTags(s)
-
-	tags = append(tags, extags...)
+	// extags include your nodes at the front, as it will be more convenient.
+	tags = append(extags, tags...)
 
 	ftags := tags
 	if include != "" {
