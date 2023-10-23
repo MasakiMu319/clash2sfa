@@ -29,6 +29,8 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - tuic5
 
 ## Change Log
+### 0.2.3
+- Updated node filters to accommodate more airport node naming.
 ### 0.2.2
 - Adjusted logic for self-built nodes.Now, your self-build nodes will be shown at the beginning of select && urltest. 
 ### 0.2.1
