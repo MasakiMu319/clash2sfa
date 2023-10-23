@@ -96,27 +96,27 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					UrlTest: []model.UrlTestArg{
 						{
 							Tag:     "HK",
-							Include: "HK|HongKong|🇭🇰",
+							Include: "HK|HongKong|🇭🇰|香港",
 							Type:    "selector",
 						},
 						{
 							Tag:     "TW",
-							Include: "TW|Taiwan|🇨🇳|🇹🇼",
+							Include: "TW|Taiwan|🇹🇼|台湾",
 							Type:    "selector",
 						},
 						{
 							Tag:     "JP",
-							Include: "JP|Japan|🇯🇵",
+							Include: "JP|Japan|🇯🇵|日本",
 							Type:    "selector",
 						},
 						{
 							Tag:     "SG",
-							Include: "SG|Singapore|🇸🇬",
+							Include: "SG|Singapore|🇸🇬|新加坡",
 							Type:    "selector",
 						},
 						{
 							Tag:     "US",
-							Include: "US|United States|🇺🇸",
+							Include: "US|United States|🇺🇸|美国",
 							Type:    "selector",
 						},
 					},
