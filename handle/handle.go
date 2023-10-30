@@ -6,6 +6,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -133,6 +134,7 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					}
 					a.UrlTest = append(a.UrlTest, u...)
 				}
+				log.Println("Making config:", sub)
 				return service.MakeConfig(ctx, c, frontendByte, l, a)
 			}
 			return service.GetSub(ctx, c, db, id, frontendByte, l)

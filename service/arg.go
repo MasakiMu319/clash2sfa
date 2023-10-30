@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"regexp"
 	"strconv"
@@ -49,32 +50,46 @@ func GetSub(cxt context.Context, c *http.Client, db db.DB, id string, frontendBy
 }
 
 func MakeConfig(cxt context.Context, c *http.Client, frontendByte []byte, l *slog.Logger, arg modle.ConvertArg) ([]byte, error) {
+	//Get configuration.
 	if arg.Config == "" && arg.ConfigUrl == "" {
 		arg.Config = string(frontendByte)
 	}
 	if arg.ConfigUrl != "" {
 		b, err := httputils.HttpGet(cxt, c, arg.ConfigUrl, 1000*1000*10)
+		log.Println("External configuration url:", arg.ConfigUrl)
 		if err != nil {
+			log.Println("Get configuration error:", err)
 			return nil, fmt.Errorf("MakeConfig: %w", err)
 		}
+		log.Println("Get configuration succeed")
 		arg.Config = string(b)
 	}
+
+	// Convert.
 	b, err := convert2sing(cxt, c, arg.Config, arg.Sub, arg.Include, arg.Exclude, arg.AddTag, l)
 	if err != nil {
+		log.Println("Convert failed:", err)
 		return nil, fmt.Errorf("MakeConfig: %w", err)
 	}
+	log.Println("The Sing-box configuration has been generated succeed")
+
+	// Add custom groups.
 	if len(arg.UrlTest) != 0 {
+		log.Println("Adding custom groups...")
 		nb, err := customUrlTest(b, arg.UrlTest)
 		if err != nil {
+			log.Println("Add custom groups error.")
 			return nil, fmt.Errorf("MakeConfig: %w", err)
 		}
 		b = nb
+		log.Println("Add custom groups succeed.")
 	}
+	log.Println("============== Separator ==============")
 	return b, nil
 }
 
 var (
-	ErrJson = errors.New("错误的 json")
+	ErrJson = errors.New("wrong json")
 )
 
 func customUrlTest(config []byte, u []modle.UrlTestArg) ([]byte, error) {
