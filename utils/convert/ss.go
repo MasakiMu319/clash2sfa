@@ -16,7 +16,11 @@ func ss(p *clash.Proxies, s *singbox.SingBoxOut) ([]singbox.SingBoxOut, error) {
 	if !p.Udp {
 		s.Network = "tcp"
 	}
-	s.Obfs = p.Obfs
+	if p.Obfs != "" {
+		s.Obfs = &singbox.SingObfs{
+			Value: p.Obfs,
+		}
+	}
 	s.ProtocolParam = p.ProtocolParam
 	s.Protocol = p.Protocol
 	s.ObfsParam = p.ObfsParam
