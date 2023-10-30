@@ -29,6 +29,10 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - tuic5
 
 ## Change Log
+### 0.3.0
+- Add support for hysteria2;
+- Fix obfs field in ss;
+- Rename some dependencies.
 ### 0.2.3
 - Updated node filters to accommodate more airport node naming.
 ### 0.2.2
