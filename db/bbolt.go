@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/xmdhs/clash2sfa/model"
+	"github.com/xmdhs/clash2sfa/modle"
 	"go.etcd.io/bbolt"
 )
 
@@ -31,8 +31,8 @@ func NewBBolt(path string) (*BBolt, error) {
 
 var ErrNotFind = errors.New("没找到")
 
-func (b *BBolt) GetArg(cxt context.Context, blake3 string) (model.ConvertArg, error) {
-	m := model.ConvertArg{}
+func (b *BBolt) GetArg(cxt context.Context, blake3 string) (modle.ConvertArg, error) {
+	m := modle.ConvertArg{}
 	err := b.db.View(func(tx *bbolt.Tx) error {
 		buc := tx.Bucket([]byte("arg"))
 		b := buc.Get([]byte(blake3))
@@ -51,7 +51,7 @@ func (b *BBolt) GetArg(cxt context.Context, blake3 string) (model.ConvertArg, er
 	return m, nil
 }
 
-func (b *BBolt) PutArg(cxt context.Context, blake3 string, arg model.ConvertArg) error {
+func (b *BBolt) PutArg(cxt context.Context, blake3 string, arg modle.ConvertArg) error {
 	rb, err := json.Marshal(arg)
 	if err != nil {
 		return fmt.Errorf("PutArg: %w", err)

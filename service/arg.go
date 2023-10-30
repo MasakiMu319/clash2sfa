@@ -17,12 +17,12 @@ import (
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 	"github.com/xmdhs/clash2sfa/db"
-	"github.com/xmdhs/clash2sfa/model"
+	"github.com/xmdhs/clash2sfa/modle"
 	"github.com/xmdhs/clash2singbox/httputils"
 	"lukechampine.com/blake3"
 )
 
-func PutArg(cxt context.Context, arg model.ConvertArg, db db.DB) (string, error) {
+func PutArg(cxt context.Context, arg modle.ConvertArg, db db.DB) (string, error) {
 	b, err := json.Marshal(arg)
 	if err != nil {
 		return "", fmt.Errorf("PutArg: %w", err)
@@ -48,7 +48,7 @@ func GetSub(cxt context.Context, c *http.Client, db db.DB, id string, frontendBy
 	return b, nil
 }
 
-func MakeConfig(cxt context.Context, c *http.Client, frontendByte []byte, l *slog.Logger, arg model.ConvertArg) ([]byte, error) {
+func MakeConfig(cxt context.Context, c *http.Client, frontendByte []byte, l *slog.Logger, arg modle.ConvertArg) ([]byte, error) {
 	if arg.Config == "" && arg.ConfigUrl == "" {
 		arg.Config = string(frontendByte)
 	}
@@ -77,12 +77,12 @@ var (
 	ErrJson = errors.New("错误的 json")
 )
 
-func customUrlTest(config []byte, u []model.UrlTestArg) ([]byte, error) {
+func customUrlTest(config []byte, u []modle.UrlTestArg) ([]byte, error) {
 	r := gjson.GetBytes(config, `outbounds.#(tag=="urltest").outbounds`)
 	if !r.Exists() {
 		return nil, fmt.Errorf("customUrlTest: %w", ErrJson)
 	}
-	sl := []model.SingUrltest{}
+	sl := []modle.SingUrltest{}
 
 	tags := []string{}
 	r.ForEach(func(key, value gjson.Result) bool {
@@ -106,7 +106,7 @@ func customUrlTest(config []byte, u []model.UrlTestArg) ([]byte, error) {
 		if v.Type == "" {
 			v.Type = "urltest"
 		}
-		sl = append(sl, model.SingUrltest{
+		sl = append(sl, modle.SingUrltest{
 			Outbounds: nt,
 			Tag:       v.Tag,
 			Tolerance: t,

@@ -13,7 +13,7 @@ import (
 	"log/slog"
 
 	"github.com/xmdhs/clash2sfa/db"
-	"github.com/xmdhs/clash2sfa/model"
+	"github.com/xmdhs/clash2sfa/modle"
 	"github.com/xmdhs/clash2sfa/service"
 )
 
@@ -21,7 +21,7 @@ func PutArg(db db.DB, l *slog.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		cxt := r.Context()
 
-		arg := model.ConvertArg{}
+		arg := modle.ConvertArg{}
 		err := json.NewDecoder(r.Body).Decode(&arg)
 		if err != nil {
 			l.DebugContext(cxt, err.Error())
@@ -86,14 +86,14 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					config = string(b)
 				}
 
-				a := model.ConvertArg{
+				a := modle.ConvertArg{
 					Sub:       sub,
 					Include:   include,
 					Exclude:   exclude,
 					Config:    config,
 					ConfigUrl: curl,
 					AddTag:    addTagb,
-					UrlTest: []model.UrlTestArg{
+					UrlTest: []modle.UrlTestArg{
 						{
 							Tag:     "HK",
 							Include: "HK|HongKong|🇭🇰|香港",
@@ -126,7 +126,7 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 					if err != nil {
 						return nil, err
 					}
-					var u []model.UrlTestArg
+					var u []modle.UrlTestArg
 					err = json.Unmarshal(b, &u)
 					if err != nil {
 						return nil, err
