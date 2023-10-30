@@ -29,6 +29,8 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - tuic5
 
 ## Change Log
+### 0.3.1
+- Import partial log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
 ### 0.3.0
 - Add support for hysteria2;
 - Fix obfs field in ss;
