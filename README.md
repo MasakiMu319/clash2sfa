@@ -25,12 +25,12 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - trojan
 - socks5
 - http
-- hysteria
+- hysteria 1/2
 - tuic5
 
 ## Change Log
 ### 0.3.1
-- Import partial log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
+- Introduce log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
 ### 0.3.0
 - Add support for hysteria2;
 - Fix obfs field in ss;
