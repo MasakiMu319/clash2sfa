@@ -1,4 +1,8 @@
 # clash2sfa
+
+![last-commit](https://img.shields.io/github/last-commit/MasakiMu319/clash2sfa?style=for-the-badge)
+![license](https://img.shields.io/github/license/MasakiMu319/clash2sfa?style=for-the-badge)
+
 Used to convert subscription links in Clash.Meta format to sing-box format (tested to work properly on Android, iOS, SFM).
 
 ## Deploy
@@ -27,6 +31,12 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - http
 - hysteria 1/2
 - tuic5
+
+## Future Development Plans
+-[ ] Refactor the front-end display page to provide more customization options; 
+-[ ] Provide custom filtering options and support persistent operations; 
+-[ ] Allow online editing and persistent storage of custom configuration templates; 
+-[ ] Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
 
 ## Change Log
 ### 0.3.1
