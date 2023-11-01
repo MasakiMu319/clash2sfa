@@ -4,6 +4,9 @@ RUN apk --no-cache add git ca-certificates
 
 WORKDIR /build
 
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o main -trimpath -ldflags "-w -s" .
