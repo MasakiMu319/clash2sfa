@@ -33,10 +33,10 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - tuic5
 
 ## Future Development Plans
--[ ] Refactor the front-end display page to provide more customization options; 
--[ ] Provide custom filtering options and support persistent operations; 
--[ ] Allow online editing and persistent storage of custom configuration templates; 
--[ ] Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
+- Refactor the front-end display page to provide more customization options; 
+- Provide custom filtering options and support persistent operations; 
+- Allow online editing and persistent storage of custom configuration templates; 
+- Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
 
 ## Change Log
 ### 0.3.1
