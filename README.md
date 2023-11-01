@@ -39,6 +39,8 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
 
 ## Change Log
+### 0.3.2
+- Add website icons designed by ChatGPT.
 ### 0.3.1
 - Introduce log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
 ### 0.3.0
