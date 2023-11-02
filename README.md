@@ -39,6 +39,8 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
 
 ## Change Log
+### 0.3.4
+- Added the ability to display network details.
 ### 0.3.3
 - Switch page language to English;
 - Optimize Dockerfile.
