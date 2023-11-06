@@ -120,6 +120,10 @@ func Sub(c *http.Client, db db.DB, frontendByte []byte, l *slog.Logger) http.Han
 							Include: "US|United States|🇺🇸|美国",
 							Type:    "selector",
 						},
+						{
+							Tag:  "fallback",
+							Type: "selector",
+						},
 					},
 				}
 				if urltest != "" {
