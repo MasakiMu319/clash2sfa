@@ -99,7 +99,7 @@ func comm(p *clash.Proxies) (*singbox.SingBoxOut, string, error) {
 }
 
 func checkIllegolNode(name string) bool {
-	if strings.Contains(name, ":") {
+	if strings.Contains(name, ":") || strings.Contains(name, "：") {
 		return false
 	}
 	return true
