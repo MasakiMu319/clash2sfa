@@ -39,28 +39,32 @@ Most changes to the profile template will be preserved, as will adding nodes to 
 - Redesign the subscription update mechanism, considering the availability of nodes, there is no good idea for the time being.
 
 ## Change Log
-### 0.3.5
-- Added fallback group in default.
-### 0.3.4
-- Added the ability to display network details.
-### 0.3.3
-- Switch page language to English;
-- Optimize Dockerfile.
-### 0.3.2
-- Add website icons designed by ChatGPT.
-### 0.3.1
-- Introduce log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
-### 0.3.0
-- Add support for hysteria2;
-- Fix obfs field in ss;
-- Rename some dependencies.
-### 0.2.3
-- Updated node filters to accommodate more airport node naming.
-### 0.2.2
-- Adjusted logic for self-built nodes.Now, your self-build nodes will be shown at the beginning of select && urltest. 
-### 0.2.1
-- Fix the problem that adding groups caused the original HK and other regional groups to be lost.
-### 0.2.0
-- Added default country triage label, etc: HK,TW...;
-- added delayed test connection for Apple service;
-- rewrote filter unnecessary node judgment logic.
+### 0.3.x
+- 0.3.6.
+  - Fix filter logic.
+- 0.3.5
+  - Added fallback group in default.
+- 0.3.4
+  - Added the ability to display network details.
+- 0.3.3
+  - Switch page language to English;
+  - Optimize Dockerfile.
+- 0.3.2
+  - Add website icons designed by ChatGPT.
+- 0.3.1
+  - Introduce log output(The logging feature is temporarily available and may be ~~refactored in a later version~~).
+- 0.3.0
+  - Add support for hysteria2;
+  - Fix obfs field in ss;
+  - Rename some dependencies.
+### 0.2.x
+- 0.2.3
+  - Updated node filters to accommodate more airport node naming.
+- 0.2.2
+  - Adjusted logic for self-built nodes.Now, your self-build nodes will be shown at the beginning of select && urltest. 
+- 0.2.1
+  - Fix the problem that adding groups caused the original HK and other regional groups to be lost.
+- 0.2.0
+  - Added default country triage label, etc: HK,TW...;
+  - added delayed test connection for Apple service;
+  - rewrote filter unnecessary node judgment logic.
